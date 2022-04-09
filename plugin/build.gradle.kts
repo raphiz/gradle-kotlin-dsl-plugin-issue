@@ -14,3 +14,10 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    doFirst {
+        println("apiVersion: ${kotlinOptions.apiVersion}")
+        println("languageVersion: ${kotlinOptions.languageVersion}")
+    }
+}
